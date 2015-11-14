@@ -1,0 +1,45 @@
+<md-dialog aria-label="Toevoegen groep" ng-cloak>
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Toevoegen groep</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="cancel()">
+          <md-icon aria-label="Close dialog"></md-icon>
+          <i class="material-icons">close</i>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content style="max-width:800px;max-height:810px;" ng-controller="SurveyCtrl">
+      <div class="md-dialog-content">
+        <div layout="row" layout-align="start start">
+          <md-input-container flex="1/3">
+            <label>Dag</label>
+            <md-select ng-model="newGroupForm.day">
+              <md-option ng-repeat="day in days" value="{{ day }}">
+                {{day}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+          <md-input-container flex="1/3">
+            <label>Tijd</label>
+            <input  name="input" ng-model="newGroupForm.time" placeholder="HH:MM" min="08:00" max="23:00" required />   
+          </md-input-container>
+          <md-input-container flex="1/3">
+            <label>Trainer</label>
+            <input ng-model="newGroupForm.trainer">
+          </md-input-container>
+        </div>
+    </md-dialog-content>
+    
+    
+    <div class="md-actions" layout="row">
+      <md-button ng-click="answer('not useful')">
+        Annuleren
+      </md-button>
+      <md-button ng-disabled="false" ng-click="newGroup()" style="margin-right:20px;">
+        Toevoegen
+      </md-button>
+    </div>
+  </form>
+</md-dialog>

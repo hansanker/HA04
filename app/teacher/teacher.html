@@ -1,0 +1,42 @@
+<div class="row marketing">
+  <div class="col-lg-6">
+    <h4>Groepen</h4>
+    <p>Al jouw gropen</p>
+
+    <h4>Leerlingen</h4>
+    <p>Niet ingedeelde leerlingen</p>
+
+    <h4>Alle personen</h4>
+    <div>
+      <ul>
+        <li ng-repeat="person in persons">
+          {{ person.firstName }}: {{ person.text }}
+         
+          <button ng-show="person.isTeacher == undefined" ng-click="isTeacher(person)">+L</button>
+          <button ng-show="person.isTeacher != undefined" ng-click="isTeacher(person)">-L</button>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+  
+  <div>
+    <ul>
+      
+      <li ng-repeat="xperson in xpersons">{{ xperson | json }}<button></button></li>
+    </ul>
+  </div>
+ 
+
+  <div class="col-lg-6">
+    <h4>Leerlingen uit goep..</h4>
+    <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+    <h4>Groepen van leerling</h4>
+    <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+
+  </div>
+</div>
+<button ng-click="refreshPerson()">refresh</button>
+

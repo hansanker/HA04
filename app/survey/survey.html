@@ -1,0 +1,63 @@
+<div layout="row" layout-sm="column" layout-margin layout-fill >
+  <div flex="1/4">
+    <md-button class="md-fab md-mini" aria-label="Add" ng-click="showAdvancedDialog($event, 'dialogNewGroup')">
+      <i class="material-icons">add</i>
+    </md-button>
+    <div flex>
+      <md-input-container>
+        <label>Zoek groep</label>
+        <input ng-model="groupFilter">
+      </md-input-container>
+    </div>
+    <div flex>
+    </div>
+    <md-radio-group>
+      <div ng-repeat="group in groups | filter:groupFilter | orderBy: 'groupName'">
+        <md-radio-button name="abc" value="{{ group.groupName }}" class="md-primary" ng-click="selectGroup(group)">{{ group.day }}-{{ group.time }}-{{ group.trainer }}
+        </md-radio-button>
+      </div>
+    </md-radio-group>
+  </div>
+  <div flex="1/4">
+    <md-whiteframe class="md-whiteframe-z2" ng-hide="selectedGroupName == Null" layout="column" layout-padding layout-align="start start">
+      <h4>
+          <div>{{ activeGroupObject.day + '-' + activeGroupObject.time + '-' + activeGroupObject.trainer }}  <i class="material-icons"  ng-click="showAdvancedDialog($event, 'dialogEditGroup')">edit</i><i class="material-icons"  ng-click="showConfirm()">delete</i></div>
+        </h4>
+      <div>
+        dag : {{ activeGroupObject.day }} om {{ activeGroupObject.time }} trainer : {{activeGroupObject.trainer}} 
+      </div><br> 
+
+      <div ng-repeat="person in personsInGroup | orderBy: 'firstName'">
+        <span>{{ person.firstName }} {{ person.lastName }}<i class="material-icons md-18" ng-click="removePersonInGroup(person)">clear</i></span>
+      </div>
+    </md-whiteframe>
+  </div>
+  <div flex="1/4">
+    <md-button class="md-fab md-mini" aria-label="Add" ng-click="showAdvancedDialog($event, 'dialogNewUser')">
+      <i class="material-icons">add</i>
+    </md-button>
+    <md-input-container>
+      <label>Zoek leerling</label>
+      <input ng-model="personFilter">
+    </md-input-container>
+    <div>
+      <md-radio-group>
+        <div ng-repeat="person in persons | filter:personFilter | orderBy: 'firstName'">
+          <md-radio-button name="abcd" value="{{ person.email }}" class="md-primary" ng-click="selectPerson(person)">{{ person.firstName }} {{ person.lastName }}</md-radio-button>
+        </div>
+    </div>
+  </div>
+  <div flex="1/4">
+    <md-whiteframe class="md-whiteframe-z2" ng-hide="selectedPersonName == Null" layout="column" layout-padding layout-align="start start">
+      <h4>
+          <div>{{ selectedPersonName }}  <i class="material-icons"  ng-click="showAdvancedDialog($event, 'dialogEditUser')">edit</i><i class="material-icons"  ng-click="showConfirmDeletePerson()">delete</i></div>
+        </h4>
+      <div> {{ activePersonObject.email }} <br><br></div>
+                <div ng-repeat="group in groupsByPerson | orderBy: 'day'">
+        <span>{{ group.day }} - {{ group.time }} - {{ group.time }}</span>
+      </div>
+      <br><br><div>{{ activeGroupObject.day + '-' + activeGroupObject.time + '-' + activeGroupObject.trainer }}<i class="material-icons"  ng-click="addPersonInGroup(person)">add</i></div>     
+
+    </md-whiteframe>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<p>This is the about view.</p>
+<i class="fa fa-square-o fa-2x"></i><i class="fa fa-check-square-1"></i>
+
+<span>Analytics Dashboard</span>
+<section>
+  <span>Total Visitors: <span id="total-visitors"></span></span>
+</section>
+<section>
+  <span>Active Visitors</span>
+  <ul ng-repeat="activeVisitor in activeVisitors2"><li>{{ activeVisitor.userAgent }}</li></ul>
+
+</section>
+<section>
+  <span>Past Visitors</span>
+  <ul id="past-visitors"></ul>
+</section>
