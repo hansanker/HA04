@@ -172,7 +172,7 @@ app.controller('SurveyCtrl', ["$scope", "$firebaseObject", "$firebaseArray", "FB
   };
 }])
 
-
+//controller for dialog
 app.controller('DialogController', function DialogController($scope, $mdDialog, $rootScope) {
 
   $scope.hide = function () {
