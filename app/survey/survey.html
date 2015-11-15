@@ -1,4 +1,4 @@
-<div layout="row" layout-sm="column" layout-margin layout-fill >
+<div layout="row" layout-sm="column" layout-margin layout-fill>
   <div flex="1/4">
     <md-button class="md-fab md-mini" aria-label="Add" ng-click="showAdvancedDialog($event, 'dialogNewGroup')">
       <i class="material-icons">add</i>
@@ -24,9 +24,9 @@
           <div>{{ activeGroupObject.day + '-' + activeGroupObject.time + '-' + activeGroupObject.trainer }}  <i class="material-icons"  ng-click="showAdvancedDialog($event, 'dialogEditGroup')">edit</i><i class="material-icons"  ng-click="showConfirm()">delete</i></div>
         </h4>
       <div>
-        dag : {{ activeGroupObject.day }} om {{ activeGroupObject.time }} trainer : {{activeGroupObject.trainer}} 
-      </div><br> 
-
+        dag : {{ activeGroupObject.day }} om {{ activeGroupObject.time }} trainer : {{activeGroupObject.trainer}}
+      </div>
+      <br>
       <div ng-repeat="person in personsInGroup | orderBy: 'firstName'">
         <span>{{ person.firstName }} {{ person.lastName }}<i class="material-icons md-18" ng-click="removePersonInGroup(person)">clear</i></span>
       </div>
@@ -52,11 +52,17 @@
       <h4>
           <div>{{ selectedPersonName }}  <i class="material-icons"  ng-click="showAdvancedDialog($event, 'dialogEditUser')">edit</i><i class="material-icons"  ng-click="showConfirmDeletePerson()">delete</i></div>
         </h4>
-      <div> {{ activePersonObject.email }} <br><br></div>
-                <div ng-repeat="group in groupsByPerson | orderBy: 'day'">
+      <div> {{ activePersonObject.email }}
+        <br>
+        <br>
+      </div>
+      <div ng-repeat="group in groupsByPerson | orderBy: 'day'">
         <span>{{ group.day }} - {{ group.time }} - {{ group.time }}</span>
       </div>
-      <br><br><div>{{ activeGroupObject.day + '-' + activeGroupObject.time + '-' + activeGroupObject.trainer }}<i class="material-icons"  ng-click="addPersonInGroup(person)">add</i></div>     
+      <br>
+      <br>
+      <div>{{ activeGroupObject.day + '-' + activeGroupObject.time + '-' + activeGroupObject.trainer }}<i class="material-icons"
+        ng-click="addPersonInGroup(person)">add</i></div>
 
     </md-whiteframe>
   </div>

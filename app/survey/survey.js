@@ -11,13 +11,6 @@ app.controller('SurveyCtrl', ["$scope", "$firebaseObject", "$firebaseArray", "FB
   var groupRef = new Firebase(FBURL + "/Schools/TennisUniversity/Groups");
   $scope.groups = $firebaseArray(groupRef);
 
-
-  var query = personsRef.orderByChild("firstName").limitToLast(5);
-  $scope.filteredMessages = $firebaseArray(query);
-
-
-
-
    
   //declarations new group
   $scope.days = ['MA', 'DI', 'WO', 'DO', 'VR', 'ZA', 'ZO'];
@@ -28,8 +21,6 @@ app.controller('SurveyCtrl', ["$scope", "$firebaseObject", "$firebaseArray", "FB
   $scope.newGroupForm.trainer = "";
   $scope.newGroupForm.day = "";
 
-  
-  
   //declarations new student
   $scope.newUserForm = {};
   $scope.newUserForm.firstName = "";
@@ -148,8 +139,6 @@ app.controller('SurveyCtrl', ["$scope", "$firebaseObject", "$firebaseArray", "FB
     $scope.selectedPersonName = $scope.activePersonObject.firstName + '-' + $scope.activePersonObject.lastName;
   };
 
-
-
   $scope.addPersonInGroup = function () {
     ref.child("/Schools/TennisUniversity/Groups/" + $scope.activeGroupObject.$id + "/persons/" + $scope.activePersonObject.$id).set(true);
     ref.child("/Schools/TennisUniversity/Persons/" + $scope.activePersonObject.$id + "/groups/" + $scope.activeGroupObject.$id).set(true);
@@ -159,17 +148,9 @@ app.controller('SurveyCtrl', ["$scope", "$firebaseObject", "$firebaseArray", "FB
   $scope.removePersonInGroup = function (person) {
     ref.child("/Schools/TennisUniversity/Groups/" + $scope.activeGroupObject.$id + "/persons/" + person.key).remove();
     ref.child("/Schools/TennisUniversity/Persons/" + person.key + "/groups/" + $scope.activeGroupObject.$id).remove();
-
     $scope.selectGroup($scope.groupObject);
   };
 
-  $scope.checkPersonInGroup = function (person) {
-    var ref4 = new Firebase("https://mijntennisles.firebaseio.com/Schools/TennisUniversity/Groups/" + $scope.selectedGroup + "/persons/" + person.$id);
-    ref4.once('value', function (snap) {
-      var result = snap.val() === null ? 'is not' : 'is';
-      console.log('Mary ' + result + ' a member of alpha group');
-    });
-  };
 }])
 
 //controller for dialog

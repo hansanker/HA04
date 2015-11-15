@@ -33,15 +33,3 @@
     </md-dialog-content>
   </form>
 </md-dialog>
-
-
-<input ng-model="profile.address" ng-change="profile.$save()" type="text" />
-<ul>
-  <li ng-repeat="person in persons">
-    {{ person.firstName }}: {{ person.text }}
-    <button ng-click="persons.$remove(person)">x</button>
-    <button ng-click="addPersonInGroup(person)">{{ selectedGroup }}</button>
-    <button ng-click="checkPersonInGroup(person)">check </button>
-  </li>
-</ul>
-
