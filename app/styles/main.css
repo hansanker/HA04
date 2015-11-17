@@ -117,3 +117,20 @@ ng-md-icon {
 
 
 .material-icons.orange600 { color: #FB8C00; }
+
+
+
+md-content {
+  padding : 20px;
+  
+}
+
+.fixed-nav {
+  width: 254px;
+  min-width: 254px;
+  max-width: 254px;
+}
+
+.selected {
+  color: #03a9f4;
+}

@@ -1,7 +1,7 @@
 'use strict';
 
 
-app.controller('SurveyCtrl', ["$scope", "$firebaseObject", "$firebaseArray", "FBURL", "$mdDialog",  "$rootScope", function ($scope, $firebaseObject, $firebaseArray, FBURL, $mdDialog, $rootScope) {
+app.controller('groupAndStudentCtrl', ["$scope", "$firebaseObject", "$firebaseArray", "FBURL", "$mdDialog",  "$rootScope", function ($scope, $firebaseObject, $firebaseArray, FBURL, $mdDialog, $rootScope) {
 
   var ref = new Firebase(FBURL);
 
@@ -64,7 +64,7 @@ app.controller('SurveyCtrl', ["$scope", "$firebaseObject", "$firebaseArray", "FB
   $scope.showAdvancedDialog = function (ev, url) {
     $mdDialog.show({
       controller: 'DialogController',
-      templateUrl: 'survey/' + url + '.html',
+      templateUrl: 'module_groupAndStudent/' + url + '.html',
       parent: angular.element(document.body),
       targetEvent: ev,
       clickOutsideToClose: false

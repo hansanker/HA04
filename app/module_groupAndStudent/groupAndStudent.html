@@ -9,8 +9,7 @@
         <input ng-model="groupFilter">
       </md-input-container>
     </div>
-    <div flex>
-    </div>
+
     <md-radio-group>
       <div ng-repeat="group in groups | filter:groupFilter | orderBy: 'groupName'">
         <md-radio-button name="abc" value="{{ group.groupName }}" class="md-primary" ng-click="selectGroup(group)">{{ group.day }}-{{ group.time }}-{{ group.trainer }}
